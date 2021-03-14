@@ -17,11 +17,11 @@
       </div>
       <div class="form-group">
         <label>Email:</label>
-        <input type="email" class="form-control" v-model="email" />
+        <input type="text" class="form-control" v-model="email" />
       </div>
       <div class="form-group">
         <label>Phone:</label>
-        <input type="phone" class="form-control" v-model="phone" />
+        <input type="text" class="form-control" v-model="phone" />
       </div>
       <div class="form-group">
         <label>Username:</label>

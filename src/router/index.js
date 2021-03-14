@@ -1,14 +1,32 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import JourneysIndex from "../views/JourneysIndex.vue";
+import Signup from "../views/Signup.vue";
+import OrdersIndex from "../views/OrdersIndex.vue";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
-import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
+import AdventuresIndex from "../views/AdventuresIndex.vue";
 import Logout from "../views/Logout.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/journeys",
+    name: "journeys-index",
+    component: JourneysIndex,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: Signup,
+  },
+  {
+    path: "/orders",
+    name: "orders-index",
+    component: OrdersIndex,
+  },
   {
     path: "/",
     name: "Home",
@@ -28,14 +46,14 @@ const routes = [
   //   component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
   // },
   {
-    path: "/signup",
-    name: "signup",
-    component: Signup,
-  },
-  {
     path: "/login",
     name: "login",
     component: Login,
+  },
+  {
+    path: "/adventures",
+    name: "adventures-index",
+    component: AdventuresIndex,
   },
   {
     path: "/logout",
