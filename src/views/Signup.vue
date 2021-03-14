@@ -8,19 +8,31 @@
         </li>
       </ul>
       <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="name" />
+        <label>First Name:</label>
+        <input type="text" class="form-control" v-model="firstName" />
+      </div>
+      <div class="form-group">
+        <label>Last Name:</label>
+        <input type="text" class="form-control" v-model="lastName" />
       </div>
       <div class="form-group">
         <label>Email:</label>
         <input type="email" class="form-control" v-model="email" />
       </div>
       <div class="form-group">
+        <label>Phone:</label>
+        <input type="phone" class="form-control" v-model="phone" />
+      </div>
+      <div class="form-group">
+        <label>Username:</label>
+        <input type="text" class="form-control" v-model="username" />
+      </div>
+      <div class="form-group">
         <label>Password:</label>
         <input type="password" class="form-control" v-model="password" />
       </div>
       <div class="form-group">
-        <label>Password confirmation:</label>
+        <label>Password Confirmation:</label>
         <input type="password" class="form-control" v-model="passwordConfirmation" />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
@@ -34,8 +46,11 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
+      phone: "",
+      username: "",
       password: "",
       passwordConfirmation: "",
       errors: [],
@@ -44,8 +59,11 @@ export default {
   methods: {
     submit: function() {
       var params = {
-        name: this.name,
+        first_name: this.firstName,
+        last_name: this.lastName,
         email: this.email,
+        phone: this.phone,
+        username: this.username,
         password: this.password,
         password_confirmation: this.passwordConfirmation,
       };
