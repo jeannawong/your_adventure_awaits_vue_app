@@ -2,11 +2,14 @@
   <div class="adventures-index">
     <h1>My Adventures</h1>
     <div v-for="adventure in adventures" v-bind:key="adventure.id">
-      <h2>{{ adventure.journey.name }}</h2>
-      <img v-bind:src="order.journey.images[0].url" v-bind:alt="order.journey.name" />
-      <p>Subtotal: {{ order.subtotal }}</p>
-      <p>Tax: {{ order.tax }}</p>
-      <p>Total: {{ order.total }}</p>
+      <h2>{{ adventure.title }}</h2>
+      <p>Description: {{ adventure.description }}</p>
+      <p>Cost: {{ adventure.cost }}</p>
+      <p>Time of Day: {{ adventure.time_of_day }}</p>
+      <p>Duration: {{ adventure.duration }}</p>
+      <!-- <p>Helpful Hints: {{ adventure.adventures_helpful_hints_id }}</p> -->
+      <p>Memory Post: {{ adventure.memory_post }}</p>
+      <p>Memory Image: {{ memory_image }}</p>
     </div>
   </div>
 </template>
