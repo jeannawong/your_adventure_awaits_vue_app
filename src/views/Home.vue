@@ -10,7 +10,7 @@
 export default {
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
+      message: "Your adventure awaits! Please go to My Adventures in the nav bar to begin. Enjoy!",
     };
   },
   created: function() {},

@@ -7,6 +7,7 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import AdventuresIndex from "../views/AdventuresIndex.vue";
+import AdventuresShow from "../views/AdventuresShow.vue";
 import Logout from "../views/Logout.vue";
 
 Vue.use(VueRouter);
@@ -54,6 +55,11 @@ const routes = [
     path: "/adventures",
     name: "adventures-index",
     component: AdventuresIndex,
+  },
+  {
+    path: "/adventures/:id",
+    name: "adventures-show",
+    component: AdventuresShow,
   },
   {
     path: "/logout",
