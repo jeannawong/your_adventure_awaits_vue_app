@@ -97,6 +97,22 @@
               </div>
             </li>
 
+            <li class="dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="dropdown4"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Helpful Hints Key
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdown4">
+                <a class="dropdown-item" href="/helpful_hints">Helpful Hints Key</a>
+              </div>
+            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="/orders" target="_blank">
                 My Orders

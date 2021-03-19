@@ -8,6 +8,8 @@ import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import AdventuresIndex from "../views/AdventuresIndex.vue";
 import AdventuresShow from "../views/AdventuresShow.vue";
+import AdventuresEdit from "../views/AdventuresEdit.vue";
+import HelpfulHints from "../views/HelpfulHintsIndex.vue";
 import Logout from "../views/Logout.vue";
 
 Vue.use(VueRouter);
@@ -60,6 +62,16 @@ const routes = [
     path: "/adventures/:id",
     name: "adventures-show",
     component: AdventuresShow,
+  },
+  {
+    path: "/adventures/:id/edit",
+    name: "adventures-edit",
+    component: AdventuresEdit,
+  },
+  {
+    path: "/helpful_hints",
+    name: "helpfulhints-index",
+    component: HelpfulHints,
   },
   {
     path: "/logout",
