@@ -1,7 +1,7 @@
 <template>
   <div class="adventures-edit">
     <h1>Add Your Memory!</h1>
-    <form v-on:submit.prevent="addMemory(adventure)">
+    <!-- <form v-on:submit.prevent="addMemory(adventure)">  <!!!!!!!!!!!!!!--'v-model' directives don't support 'file' input type!!!!!!!!!!!!!!!
       <ul>
         <li v-for="error in errors" v-bind:key="error.id">{{ error }}</li>
       </ul>
@@ -11,8 +11,19 @@
       </p>
       <p>
         Memory Image:
-        <input type="text" v-model="adventure.memory_image" />
+        <input type="file" v-model="adventure.memory_image" />
       </p>
+      <input type="submit" value="Add Memory" />
+    </form> -->
+    <form v-on:submit.prevent="submit()">
+      <div>
+        Memory Post:
+        <input type="text" v-model="adventure.memory_post" />
+      </div>
+      <div>
+        Memory Image:
+        <input type="file" v-on:change="setFile($event)" ref="fileInput" />
+      </div>
       <input type="submit" value="Add Memory" />
     </form>
   </div>
@@ -23,7 +34,10 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      adventure: {},
+      adventure: {
+        memory_post: "",
+        memory_image: "",
+      },
       errors: [],
     };
   },
@@ -34,18 +48,30 @@ export default {
     });
   },
   methods: {
-    addMemory: function(adventure) {
-      var params = {
-        memory_post: adventure.memory_post,
-        memory_image: adventure.memory_image,
-      };
+    // addMemory: function(adventure) {
+    //   var params = {
+    //     memory_post: adventure.memory_post,
+    //     memory_image: adventure.memory_image,
+    //   };
+    setFile: function(event) {
+      if (event.target.files.length > 0) {
+        this.memory_image = event.target.files[0];
+      }
+    },
+    submit: function() {
+      var formData = new FormData();
+      formData.append("memory_post", this.adventure.memory_post);
+      formData.append("memory_image", this.memory_image);
+
       axios
-        .patch("/api/adventures/" + adventure.id, params)
+        .patch("/api/adventures/" + this.adventure.id, formData)
         .then(response => {
           console.log("adventures update", response);
           this.$router.push("/adventures");
         })
         .catch(error => {
+          this.memory_post = "";
+          this.$refs.fileInput.value = "";
           console.log("adventures update error", error.response);
           this.errors = error.response.data.errors;
         });

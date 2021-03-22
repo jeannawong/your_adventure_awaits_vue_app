@@ -16,7 +16,7 @@
     <p><router-link v-bind:to="`/adventures/${adventure.id}/edit`">Add Your Memory!</router-link></p>
     <p><router-link to="/adventures">Back To Your Adventures</router-link></p>
 
-    <div id="posts" class="container">
+    <!-- <div id="posts" class="container">
       <div class="row">
         <section class="col-md-12 wow fadeIn">
           <div class="post big">
@@ -60,7 +60,7 @@
           </div>
         </section>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

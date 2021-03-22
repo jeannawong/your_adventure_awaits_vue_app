@@ -114,9 +114,12 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/orders" target="_blank">
+              <a class="nav-link" href="/orders">
                 My Orders
               </a>
+              <!-- <a class="nav-link" href="/orders" target="_blank">
+                My Orders
+              </a> -->
             </li>
 
             <li class="dropdown">
