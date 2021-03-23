@@ -2,9 +2,12 @@
   <div class="helpfulhints-index">
     <h1>Helpful Hints</h1>
     <div v-for="helpful_hint in helpful_hints" v-bind:key="helpful_hint.id">
+      <br />
       <img v-bind:src="helpful_hint.hint_symbol" v-bind:alt="helpful_hint.id" />
-      <b>{{ helpful_hint.hint }}</b>
-      : {{ helpful_hint.description }}
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <b>{{ helpful_hint.hint }}:</b>
+      {{ helpful_hint.description }}
+      <br />
     </div>
   </div>
 </template>

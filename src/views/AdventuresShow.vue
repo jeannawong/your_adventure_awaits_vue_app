@@ -6,15 +6,36 @@
       </div>
     </vue-scratchable>
     <h2>{{ adventure.title }}</h2>
-    <p>Cost: {{ adventure.cost }}</p>
-    <p>Time of Day: {{ adventure.time_of_day }}</p>
-    <p>Duration: {{ adventure.duration }}</p>
-    <!-- <p>Helpful Hints: {{ adventure.adventures_helpful_hints_id }}</p> -->
-    <p>Memory Post: {{ adventure.memory_post }}</p>
-    <p>Memory Image: {{ adventure.memory_image }}</p>
+    <p>
+      <b>Cost:</b>
+      ${{ adventure.cost }}
+    </p>
+    <p>
+      <b>Time of Day:</b>
+      {{ adventure.time_of_day }}
+    </p>
+    <p>
+      <b>Duration:</b>
+      {{ adventure.duration }}
+    </p>
+    <p v-if="adventure.helpful_hints.length > 0"><b>Helpful Hints:</b></p>
+    <div v-for="helpful_hint in adventure.helpful_hints" v-bind:key="helpful_hint.id">
+      <img class="symbol" v-bind:src="helpful_hint.hint_symbol" v-bind:alt="helpful_hint.id" />
+    </div>
+    -------------------------------------------------------------------------------------------------------------------------------------------------
+    <p>
+      <b>Memory Post:</b>
+      {{ adventure.memory_post }}
+    </p>
+    <p>
+      <b>Photo Here:</b>
+      {{ adventure.memory_image }}
+    </p>
     <img v-bind:src="adventure.memory_image" v-bind:alt="adventure.title" />
-    <p><router-link v-bind:to="`/adventures/${adventure.id}/edit`">Add Your Memory!</router-link></p>
-    <p><router-link to="/adventures">Back To Your Adventures</router-link></p>
+    <p>
+      <router-link v-bind:to="`/adventures/${adventure.id}/edit`"><b>Add Your Memory!</b></router-link>
+    </p>
+    <p><router-link to="/adventures">Back To My Adventures</router-link></p>
 
     <!-- <div id="posts" class="container">
       <div class="row">
@@ -64,6 +85,21 @@
   </div>
 </template>
 
+<style scoped>
+.scratch {
+  height: 30vh;
+  width: 30vw;
+}
+.symbol {
+  height: 35px;
+  width: 35px;
+}
+img {
+  width: 600px;
+  height: auto;
+}
+</style>
+
 <script>
 import axios from "axios";
 import VueScratchable from "vue-scratchable";
@@ -86,10 +122,3 @@ export default {
   methods: {},
 };
 </script>
-
-<style scoped>
-.scratch {
-  height: 25vh;
-  width: 50vw;
-}
-</style>

@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="row">
-            <section class="col-md-4 wow fadeIn" v-for="journey in journeys" v-bind:key="journey.id">
+            <section class="col-md-6 wow fadeIn" v-for="journey in journeys" v-bind:key="journey.id">
               <div class="post">
                 <div class="media">
                   <div class="owl-slides">
@@ -22,7 +22,9 @@
                 </div>
                 <div class="caption text-center">
                   <a href="post-image.html" class="post-title">{{ journey.name }}</a>
-                  <span class="post-date">6 Aug 2015</span>
+                  <p>Price: ${{ journey.price }}</p>
+                  <button v-on:click="createOrder(journey)" class="btn btn-primary">Purchase</button>
+                  <!-- <span class="post-date">6 Aug 2015</span> -->
                 </div>
               </div>
             </section>
@@ -30,19 +32,19 @@
         </div>
       </div>
     </div>
-    <h1>All Journeys</h1>
+    <!-- <h1>All Journeys</h1>
     <div v-for="journey in journeys" v-bind:key="journey.id">
       <h2>{{ journey.name }}</h2>
       <img v-bind:src="journey.images[0].url" v-bind:alt="journey.name" />
       <p>Price: {{ journey.price }}</p>
       <button v-on:click="createOrder(journey)" class="btn btn-primary">Purchase</button>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <style scoped>
 .img-cover {
-  height: 250px;
+  height: 200px;
   width: 100%;
   object-fit: cover;
 }

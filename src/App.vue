@@ -4,16 +4,17 @@
 
     <div id="header">
       <div class="top">
-        <div class="search">
+        <!-- <div class="search">
           <form role="form">
             <div class="form-group has-feedback">
               <input type="text" class="form-control input-sm" placeholder="Search.." />
               <i class="form-control-feedback fa fa-search"></i>
             </div>
           </form>
-        </div>
-        <a class="brand" href="#">
-          <span>VV</span>
+        </div> -->
+        <a class="brand" href="/about">
+          <h2>Your Adventure Awaits</h2>
+          <!-- <span>VV</span> -->
         </a>
       </div>
 
@@ -33,96 +34,58 @@
 
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
           <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdown1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                All Journeys
+            <li class="nav-item">
+              <a class="nav-link" href="/journeys">
+                Shop Journeys
               </a>
-              <div class="dropdown-menu" aria-labelledby="dropdown1">
-                <a class="dropdown-item" href="/journeys">All Journeys</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdown2"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Signup
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdown2">
-                <a class="dropdown-item" href="/signup">Sign Up</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdown3"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Login
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdown3">
-                <a class="dropdown-item" href="/login">Login</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdown4"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                My Adventures
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdown4">
-                <a class="dropdown-item" href="/adventures">My Adventures</a>
-              </div>
-            </li>
-
-            <li class="dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdown4"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Helpful Hints Key
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdown4">
-                <a class="dropdown-item" href="/helpful_hints">Helpful Hints Key</a>
-              </div>
             </li>
 
             <li class="nav-item">
+              <a class="nav-link" href="/adventures">
+                My Adventures
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/helpful_hints">
+                Helpful Hints Legend
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">
+                Signup
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/login">
+                Login
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/signout">
+                Logout
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/about">
+                About Us
+              </a>
+            </li>
+
+            <!-- <li class="nav-item">
               <a class="nav-link" href="/orders">
                 My Orders
               </a>
-              <!-- <a class="nav-link" href="/orders" target="_blank">
+              <a class="nav-link" href="/orders" target="_blank">
                 My Orders
-              </a> -->
-            </li>
+              </a>
+            </li> -->
 
-            <li class="dropdown">
+            <!-- <li class="dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -131,12 +94,12 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Sign Out
+                Logout
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdown4">
-                <a class="dropdown-item" href="/signout">Signout</a>
+                <a class="dropdown-item" href="/signout">Logout</a>
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </nav>
@@ -164,7 +127,9 @@
         <div class="color cadet btn btn-default btn-block" data-color="cadet"></div>
       </div>
     </div> -->
-    <router-view />
+    <div class="container">
+      <router-view />
+    </div>
 
     <!-- <div id="footer">
       <div id="subscribe">
