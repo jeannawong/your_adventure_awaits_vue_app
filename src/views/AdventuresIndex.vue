@@ -1,6 +1,6 @@
 <template>
   <div class="adventures-index">
-    <h1>My Adventures</h1>
+    <h1 class="adventure-header">My Adventures</h1>
     <fw-book
       :data="pages"
       :startPageIndex="1"
@@ -22,6 +22,10 @@
         </div> -->
       </template>
     </fw-book>
+    <br />
+    <br />
+    <br />
+    <br />
     <br />
 
     <!-- <div v-for="adventure in adventures" v-bind:key="adventure.id">
@@ -101,12 +105,16 @@
 </template>
 
 <style scoped>
+.adventure-header {
+  text-align: center;
+}
 img.helpful_hint_symbol {
   height: 50px;
   width: 50px;
 }
 .fw-book {
   width: 720px;
+  margin: 0 auto;
   border-radius: 10px;
   position: relative;
   perspective: 1500px;
