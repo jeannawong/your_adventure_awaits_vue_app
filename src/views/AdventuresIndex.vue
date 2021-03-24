@@ -11,9 +11,10 @@
     >
       <template v-slot:page="{ page }">
         <img :src="page.src" :alt="'This adventure is not completed!'" />
-        <h3>{{ page.title }}</h3>
+        <h3>
+          <router-link v-bind:to="page.href">{{ page.title }}</router-link>
+        </h3>
         <p>{{ page.caption }}</p>
-        <a :href="page.href">View Adventure</a>
         <!-- <div class="page-content">
           <h3>{{ page.title }}</h3>
           <p>{{ page.caption }}</p>
