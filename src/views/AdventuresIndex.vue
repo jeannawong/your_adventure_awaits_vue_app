@@ -1,20 +1,29 @@
 <template>
   <div class="adventures-index">
     <h1>My Adventures</h1>
-
-    <div>
-      <VueSlickCarousel v-bind="settings">
-        <div><h3>1111111</h3></div>
-        <div><h3>2222222</h3></div>
-        <!-- <div v-for="adventure in adventures" v-bind:key="adventure.id">
-          <h3>
-            <b>{{ adventure.title }}</b>
-          </h3>
+    <fw-book
+      :data="pages"
+      :startPageIndex="1"
+      :endPageIndex="pages.length - 2"
+      :autoNextPage="autoNextPage"
+      :autoNextPageDelayTime="1000"
+      :loop="loop"
+    >
+      <template v-slot:page="{ page }">
+        <img :src="page.src" :alt="'This adventure is not completed!'" />
+        <h3>{{ page.title }}</h3>
+        <p>{{ page.caption }}</p>
+        <a :href="page.href">View Adventure</a>
+        <!-- <div class="page-content">
+          <h3>{{ page.title }}</h3>
+          <p>{{ page.caption }}</p>
+          <router-link v-bind:to="page.href"><b>View Adventure</b></router-link>
         </div> -->
-      </VueSlickCarousel>
-    </div>
+      </template>
+    </fw-book>
+    <br />
 
-    <div v-for="adventure in adventures" v-bind:key="adventure.id">
+    <!-- <div v-for="adventure in adventures" v-bind:key="adventure.id">
       <h3>
         <b>{{ adventure.title }}</b>
       </h3>
@@ -32,43 +41,14 @@
       </p>
       <p v-if="adventure.helpful_hints.length > 0"><b>Helpful Hints:</b></p>
       <div v-for="helpful_hint in adventure.helpful_hints" v-bind:key="helpful_hint.id">
-        <img v-bind:src="helpful_hint.hint_symbol" v-bind:alt="helpful_hint.id" />
+        <img class="helpful_hint_symbol" v-bind:src="helpful_hint.hint_symbol" v-bind:alt="helpful_hint.id" />
       </div>
-      <!-- <p>Memory Post: {{ adventure.memory_post }}</p>
-      <p>Memory Image: {{ adventure.memory_image }}</p> -->
+      <p>Memory Post: {{ adventure.memory_post }}</p>
+      <p>Memory Image: {{ adventure.memory_image }}</p>
       <p></p>
       <p></p>
       <router-link v-bind:to="`/adventures/${adventure.id}`"><b>View Adventure</b></router-link>
       <p>---------------------------------------------------------------------------------------------------</p>
-    </div>
-
-    <!-- <div>
-      <VueSlickCarousel :arrows="true" :dots="true">
-        <div v-for="adventure in adventures" v-bind:key="adventure.id">
-          <h2>{{ adventure.title }}</h2>
-          <p>Cost: ${{ adventure.cost }}</p>
-          <p>Time of Day: {{ adventure.time_of_day }}</p>
-          <p>Duration: {{ adventure.duration }}</p>
-          <p v-if="adventure.helpful_hints.length > 0">Helpful Hints:</p>
-          <div v-for="helpful_hint in adventure.helpful_hints" v-bind:key="helpful_hint.id">
-            <p>{{ helpful_hint }}</p>
-          </div>
-          <p>Memory Post: {{ adventure.memory_post }}</p>
-          <p>Memory Image: {{ adventure.memory_image }}</p>
-          <router-link v-bind:to="`/adventures/${adventure.id}`">Embark on Adventure</router-link>
-        </div>
-      </VueSlickCarousel>
-    </div> -->
-
-    <!-- <div id="flipbook">
-      <div class="hard">My Memories</div>
-      <div class="hard"></div>
-      <div v-for="adventure in adventures" v-bind:key="adventure.id">
-        <p>{{ adventure.title }}</p>
-        <p>{{ adventure.memory_post }}</p>
-      </div>
-      <div class="hard"></div>
-      <div class="hard"></div>
     </div> -->
 
     <!-- <div id="posts" class="container">
@@ -120,13 +100,33 @@
 </template>
 
 <style scoped>
-img {
+img.helpful_hint_symbol {
   height: 50px;
   width: 50px;
 }
-.slick-prev,
-.slick-next {
-  color: black;
+.fw-book {
+  width: 720px;
+  border-radius: 10px;
+  position: relative;
+  perspective: 1500px;
+}
+.fw-book .fw-bookitem {
+  width: 50%;
+  height: 100%;
+  border-radius: 10px;
+  background: #ffffff;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.fw-book .fw-bookitem img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.page-content {
+  padding: 0.5em;
 }
 </style>
 
@@ -134,38 +134,45 @@ img {
 // /* global $ */
 import axios from "axios";
 // import Vue from "vue";
-import VueSlickCarousel from "vue-slick-carousel";
-import "vue-slick-carousel/dist/vue-slick-carousel.css";
-// note: optional style for arrows & dots
-import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
-  name: "My Component",
-  components: { VueSlickCarousel },
   data: function() {
     return {
       adventures: [],
-      settings: {
-        // adventures: [],
-        arrows: true,
-        dots: true,
-        infinite: true,
-        slidesToScroll: 1,
-        rtl: true,
-      },
+      autoNextPage: false,
+      loop: false,
+      pages: [
+        // {
+        //   src: "https://raw.githubusercontent.com/Reidond/vue-turnjs/develop/static/bookblock/1.jpg",
+        // },
+        // {
+        //   src: "https://raw.githubusercontent.com/Reidond/vue-turnjs/develop/static/bookblock/2.jpg",
+        // },
+        // {
+        //   src: "https://raw.githubusercontent.com/Reidond/vue-turnjs/develop/static/bookblock/3.jpg",
+        // },
+        // {
+        //   src: "https://raw.githubusercontent.com/Reidond/vue-turnjs/develop/static/bookblock/4.jpg",
+        // },
+        // {
+        //   src: "https://raw.githubusercontent.com/Reidond/vue-turnjs/develop/static/bookblock/5.jpg",
+        // },
+      ],
     };
   },
   mounted: function() {
     axios.get("/api/adventures").then(response => {
       console.log("adventures index", response);
       this.adventures = response.data;
-      // Vue.nextTick(function() {
-      //   $("#flipbook").turn({
-      //     width: 800,
-      //     height: 600,
-      //     autoCenter: true,
-      //   });
-      // });
+      this.pages = this.adventures.map(adventure => ({
+        src:
+          adventure.memory_image ||
+          "https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg",
+        title: adventure.title,
+        caption: adventure.memory_post || "This adventure is not completed yet!",
+        href: `/adventures/${adventure.id}`,
+      }));
+      console.log(this.pages);
     });
   },
   methods: {},

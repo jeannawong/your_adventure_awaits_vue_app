@@ -31,7 +31,7 @@
       <b>Photo Here:</b>
       {{ adventure.memory_image }}
     </p>
-    <img v-bind:src="adventure.memory_image" v-bind:alt="adventure.title" />
+    <img v-bind:src="adventure.memory_image" v-bind:alt="'No image. Adventure not completed yet!'" />
     <p>
       <router-link v-bind:to="`/adventures/${adventure.id}/edit`"><b>Add Your Memory!</b></router-link>
     </p>

@@ -12,7 +12,7 @@
             </div>
           </form>
         </div> -->
-        <a class="brand" href="/about">
+        <a class="brand" href="/">
           <h2>Your Adventure Awaits</h2>
           <!-- <span>VV</span> -->
         </a>
@@ -47,7 +47,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/helpful_hints">
+              <a class="nav-link" href="/helpful_hints" target="_blank">
                 Helpful Hints Legend
               </a>
             </li>
@@ -71,7 +71,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/about">
+              <a class="nav-link" href="/">
                 About Us
               </a>
             </li>

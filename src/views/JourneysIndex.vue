@@ -32,6 +32,27 @@
         </div>
       </div>
     </div>
+
+    <div id="footer">
+      <div id="subscribe">
+        <div class="container">
+          <div class="form-inline justify-content-center">
+            <div class="form-group">
+              <p>Stay updated on latest updates &amp; promotions</p>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Your email address" />
+                <span class="input-group-btn">
+                  <button class="btn btn-ada-dark" type="button">Subscribe</button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- <h1>All Journeys</h1>
     <div v-for="journey in journeys" v-bind:key="journey.id">
       <h2>{{ journey.name }}</h2>
